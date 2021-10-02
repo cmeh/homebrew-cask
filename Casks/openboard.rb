@@ -1,6 +1,6 @@
 cask "openboard" do
   version "1.6.1"
-  sha256 "203741c86d50a7ea63f36b9d9cc607d843fb7ee17729c46764f155f47e356b8b"
+  sha256 "d6c0f95541af5a96cd1cfebccd644c7dcec616d3d80c57fb4d5d0c6a7feef6b1"
 
   url "https://github.com/OpenBoard-org/OpenBoard/releases/download/v#{version}/OpenBoard-#{version}.dmg",
       verified: "github.com/OpenBoard-org/OpenBoard/"
@@ -16,9 +16,9 @@ cask "openboard" do
   app "OpenBoard.app"
 
   zap trash: [
-    "~/Music/OpenBoard",
-    "~/Movies/OpenBoard",
-    "~/Pictures/OpenBoard",
     "~/Library/Application Support/OpenBoard",
+    "~/Movies/OpenBoard",
+    "~/Music/OpenBoard",
+    "~/Pictures/OpenBoard",
   ]
 end

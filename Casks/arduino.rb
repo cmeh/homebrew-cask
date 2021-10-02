@@ -1,10 +1,10 @@
 cask "arduino" do
-  version "1.8.14"
-  sha256 "ec63a8c40d9fbbb06ded4f59d79816567f90bfb81df47604f58db620cbb89f53"
+  version "1.8.16"
+  sha256 "33f9de1ebc0db5bdb4ee244b4fa86e5fe7ddd460097f405de42a3a970891a50f"
 
   url "https://downloads.arduino.cc/arduino-#{version}-macosx.zip"
   name "Arduino"
-  desc "Open-source electronics prototyping platform"
+  desc "Electronics prototyping platform"
   homepage "https://www.arduino.cc/"
 
   livecheck do

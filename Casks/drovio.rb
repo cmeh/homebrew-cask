@@ -1,6 +1,6 @@
 cask "drovio" do
-  version "3.0.4"
-  sha256 "a77ad77d81d9b2e3576978fc0efcfa6a8f0473fa45d0ad203e301252ca977dd7"
+  version "3.1.5"
+  sha256 "6fdfc0559f117132b287b87a98428be8ca7970d5f55d0ff2f80faa9425b75260"
 
   url "https://repository.drovio.com/stable/drovio/macos/#{version.major}.x/#{version}/drovio.dmg"
   name "Drovio"
@@ -9,8 +9,7 @@ cask "drovio" do
 
   livecheck do
     url "https://repository.drovio.com/stable/drovio/macos/latest_version/release.json"
-    strategy :page_match
-    regex(/"version"\s*:\s*"(\d+(?:\.\d+)*)"/i)
+    regex(/"version"\s*:\s*"(\d+(?:\.\d+)+)"/i)
   end
 
   auto_updates true

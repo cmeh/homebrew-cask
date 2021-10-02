@@ -1,6 +1,6 @@
 cask "inkscape" do
-  version "1.0.2"
-  sha256 "2e8eb5f8aa8a974b4621151e17af8b9106363518a5834c54da6a2649a5191b81"
+  version "1.1.1"
+  sha256 "f201468781d827b6c4055d08a603d828a29d5cff40f96228e535842c91c9debe"
 
   url "https://media.inkscape.org/dl/resources/file/Inkscape-#{version}.dmg"
   name "Inkscape"
@@ -18,7 +18,7 @@ cask "inkscape" do
   binary shimscript, target: "inkscape"
 
   preflight do
-    IO.write shimscript, <<~EOS
+    File.write shimscript, <<~EOS
       #!/bin/sh
       exec '#{staged_path}/Inkscape.app/Contents/MacOS/inkscape' "$@"
     EOS
@@ -28,6 +28,7 @@ cask "inkscape" do
     "~/.config/inkscape",
     "~/Library/Application Support/Inkscape",
     "~/Library/Application Support/org.inkscape.Inkscape",
+    "~/Library/Caches/org.inkscape.Inkscape*",
     "~/Library/Preferences/org.inkscape.Inkscape.plist",
     "~/Library/Saved Application State/org.inkscape.Inkscape.savedState",
   ]

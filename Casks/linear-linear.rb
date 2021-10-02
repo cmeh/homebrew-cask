@@ -1,17 +1,28 @@
 cask "linear-linear" do
-  version "1.2.15"
-  sha256 "437910bced988d023f5ab9e45adefb5c38212b4a88d5f456c864a904686e61ef"
+  version "1.4.0"
+  sha256 :no_check
 
-  url "https://download.linear.app/darwin/Linear-darwin-x64-#{version}.zip"
+  if Hardware::CPU.intel?
+    url "https://desktop.linear.app/mac/dmg/x64"
+
+    livecheck do
+      url "https://desktop.linear.app/mac/dmg/x64"
+      strategy :header_match
+      regex(/Linear\s*(\d+(?:\.\d+)*?)[._-]x64.dmg/)
+    end
+  else
+    url "https://desktop.linear.app/mac/dmg/arm64"
+
+    livecheck do
+      url "https://desktop.linear.app/mac/dmg/arm64"
+      strategy :header_match
+      regex(/Linear\s*(\d+(?:\.\d+)*?)[._-]arm64.dmg/)
+    end
+  end
+
   name "Linear"
   desc "App to manage software development and track bugs"
   homepage "https://linear.app/"
-
-  livecheck do
-    url "https://api.linear.app/update/darwin/0.0.0"
-    strategy :page_match
-    regex(%r{/Linear-darwin-x64-(\d+(?:\.\d+)*)\.zip}i)
-  end
 
   auto_updates true
 

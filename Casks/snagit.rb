@@ -1,8 +1,8 @@
 cask "snagit" do
-  version "2021.3.0"
-  sha256 :no_check
+  version "2021.4.2"
+  sha256 "d75b540f31c443aa7c8ede476a13b13703b8f44a1f099d8af5622bc1bbd4d16c"
 
-  url "https://download.techsmith.com/snagitmac/releases/Snagit.dmg"
+  url "https://download.techsmith.com/snagitmac/releases/#{version.major[-2..]}#{version.minor_patch.no_dots}/snagit.dmg"
   name "Snagit"
   desc "Screen capture software"
   homepage "https://www.techsmith.com/screen-capture.html"

@@ -1,6 +1,6 @@
 cask "binance" do
-  version "1.16.0"
-  sha256 "3c8f1205d1daffeec4a2f778f410b0c670d118e64d51d0a9e6ed16fefb843cfb"
+  version "1.23.0"
+  sha256 "2005d111181760ce7180ef151fb5de9902d53eb82bec3403e5e0dded9bac8af0"
 
   url "https://ftp.binance.com/electron-desktop/mac/production/binance-#{version}.dmg"
   name "Binance"
@@ -12,11 +12,14 @@ cask "binance" do
     strategy :electron_builder
   end
 
+  auto_updates true
+  depends_on macos: ">= :el_capitan"
+
   app "Binance.app"
 
   zap trash: [
     "~/Library/Application Support/Binance",
-    "~/Library/Saved Application State/com.binance.BinanceDesktop.savedState",
     "~/Library/Logs/Binance",
+    "~/Library/Saved Application State/com.binance.BinanceDesktop.savedState",
   ]
 end

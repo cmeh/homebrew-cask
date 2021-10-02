@@ -1,11 +1,13 @@
 cask "clion" do
-  version "2021.1.1,211.7142.21"
+  version "2021.2.2,212.5284.51"
 
   if Hardware::CPU.intel?
-    sha256 "fe7262bc15279fbfacecf4e1e5e47d31e95da7cb1e5d33e0d4897fd704d850fb"
+    sha256 "32ad45595e8b7f3170a1905c10863adb7567dc6662d8f6d256155d074df56dcf"
+
     url "https://download.jetbrains.com/cpp/CLion-#{version.before_comma}.dmg"
   else
-    sha256 "2f72a522259646f903c621265fefc075b90039e36ec6063f6582d04a6da7d9d9"
+    sha256 "8716bcdf4b39f1943864a90255fad90d081dfd333a9c16c3aabfdcbd3bfc88b5"
+
     url "https://download.jetbrains.com/cpp/CLion-#{version.before_comma}-aarch64.dmg"
   end
 
@@ -16,13 +18,14 @@ cask "clion" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=CL&latest=true&type=release"
     strategy :page_match do |page|
-      version = page.match(/"version":"(\d+(?:\.\d+)*)/i)
-      build = page.match(/"build":"(\d+(?:\.\d+)*)/i)
-      "#{version[1]},#{build[1]}"
+      JSON.parse(page)["CL"].map do |release|
+        "#{release["version"]},#{release["build"]}"
+      end
     end
   end
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "CLion.app"
 
@@ -36,9 +39,12 @@ cask "clion" do
   end
 
   zap trash: [
-    "~/Library/Application Support/CLion#{version.major_minor}",
-    "~/Library/Caches/CLion#{version.major_minor}",
-    "~/Library/Logs/CLion#{version.major_minor}",
+    "~/Library/Application Support/JetBrains/CLion#{version.major_minor}",
+    "~/Library/Caches/JetBrains/CLion#{version.major_minor}",
+    "~/Library/Logs/JetBrains/CLion#{version.major_minor}",
     "~/Library/Preferences/CLion#{version.major_minor}",
+    "~/Library/Preferences/com.jetbrains.CLion.plist",
+    "~/Library/Preferences/jetbrains.clion.*.plist",
+    "~/Library/Saved Application State/com.jetbrains.CLion.savedState",
   ]
 end

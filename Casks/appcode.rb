@@ -1,11 +1,13 @@
 cask "appcode" do
-  version "2021.1,211.6693.150"
+  version "2021.2.2,212.5284.45"
 
   if Hardware::CPU.intel?
-    sha256 "d718e4f69107793038cc6738cf775f3426e4a1d3f5da9eff4cff55e408e4e946"
+    sha256 "283b0a7a6ef47cec78195f94c57612909fd3d4b3a22c777075b9301180cfd242"
+
     url "https://download.jetbrains.com/objc/AppCode-#{version.before_comma}.dmg"
   else
-    sha256 "05346c6b28b46ce4c19aa724869acb47befc5192ff814960179e113713f85e82"
+    sha256 "c515ab622a354297fb2d480ee753159c28d712e59ef95b0c433e351c27bd3260"
+
     url "https://download.jetbrains.com/objc/AppCode-#{version.before_comma}-aarch64.dmg"
   end
 
@@ -16,13 +18,14 @@ cask "appcode" do
   livecheck do
     url "https://data.services.jetbrains.com/products/releases?code=AC&latest=true&type=release"
     strategy :page_match do |page|
-      version = page.match(/"version":"(\d+(?:\.\d+)*)/i)
-      build = page.match(/"build":"(\d+(?:\.\d+)*)/i)
-      "#{version[1]},#{build[1]}"
+      JSON.parse(page)["AC"].map do |release|
+        "#{release["version"]},#{release["build"]}"
+      end
     end
   end
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "AppCode.app"
 

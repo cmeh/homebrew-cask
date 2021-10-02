@@ -1,6 +1,6 @@
 cask "mendeley-reference-manager" do
-  version "2.47.0"
-  sha256 "04917af5e027deff04bb8390b41c3b4f2d25fc2b2fc99d460a620eccd4e34117"
+  version "2.58.0"
+  sha256 "52413ada862b4bfc19af4ad4b2a15310bdde35781c5d970b624805576ff9ed35"
 
   url "https://static.mendeley.com/bin/desktop/mendeley-reference-manager-#{version}.dmg"
   name "Mendeley Reference Manager"
@@ -12,12 +12,14 @@ cask "mendeley-reference-manager" do
     strategy :electron_builder
   end
 
+  depends_on macos: ">= :yosemite"
+
   app "Mendeley Reference Manager.app"
 
   zap trash: [
     "~/Library/Application Support/Mendeley Reference Manager",
+    "~/Library/Logs/Mendeley Reference Manager",
     "~/Library/Preferences/com.elsevier.mendeley.plist",
     "~/Library/Saved Application State/com.elsevier.mendeley.savedState",
-    "~/Library/Logs/Mendeley Reference Manager",
   ]
 end

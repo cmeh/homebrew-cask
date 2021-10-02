@@ -1,7 +1,7 @@
 cask "dosbox-x" do
   if Hardware::CPU.intel?
-    version "0.83.13,20210430230655"
-    sha256 "0854427a1fec933d886a65285d0fe5dc54e5cb842d2a614efd40176ffdd931d5"
+    version "0.83.17,20210831231846"
+    sha256 "2bcf0e8005e5a79db84c69e038db1a59b41f98ee452452263fd96f8be88a3de2"
 
     url "https://github.com/joncampbell123/dosbox-x/releases/download/dosbox-x-v#{version.before_comma}/dosbox-x-macosx-x86_64-#{version.after_comma}.zip",
         verified: "github.com/joncampbell123/dosbox-x/"
@@ -14,8 +14,8 @@ cask "dosbox-x" do
       end
     end
   else
-    version "0.83.13,20210430230543"
-    sha256 "205695b80c2976998f0e637b6515c3b4c6d4364bb1489564e9ec57aa32682a9b"
+    version "0.83.17,20210831230855"
+    sha256 "6bd75b2b09b3a1098832cbe894f0e430bf32b814ac469195022e9f045677e5c5"
 
     url "https://github.com/joncampbell123/dosbox-x/releases/download/dosbox-x-v#{version.before_comma}/dosbox-x-macosx-arm64-#{version.after_comma}.zip",
         verified: "github.com/joncampbell123/dosbox-x/"
@@ -34,4 +34,9 @@ cask "dosbox-x" do
   homepage "https://dosbox-x.com/"
 
   app "dosbox-x/dosbox-x.app"
+
+  zap trash: [
+    "~/Library/Preferences/com.dosbox-x.plist",
+    "~/Library/Preferences/mapper-dosbox-x.map",
+  ]
 end

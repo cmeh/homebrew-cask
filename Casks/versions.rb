@@ -1,8 +1,8 @@
 cask "versions" do
-  version "2.0.1,2004"
-  sha256 "94057a685aa1089122544e5a869bcfc5cc14ea9771b3c03f4525c9dbad165382"
+  version "2.0.6,2009"
+  sha256 "e8a8cbc951e2f40b212fbeb6b3d7f8441dda9ed4ee53f6cf78b952ed63efb44c"
 
-  url "https://updates.versionsapp.com/v#{version.major}/prod/Versions-#{version.before_comma}.zip"
+  url "https://updates.versionsapp.com/v#{version.major}/prod/Versions-#{version.before_comma}-#{version.after_comma}.zip"
   name "Versions"
   desc "Subversion client"
   homepage "https://versionsapp.com/"

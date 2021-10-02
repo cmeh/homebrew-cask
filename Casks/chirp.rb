@@ -1,16 +1,15 @@
 cask "chirp" do
-  version "20210429"
-  sha256 "325f3d071b2c98a832cdc2e4563e88cb94315b20acd61ccb0d9c81e370f86086"
+  version "20210922"
+  sha256 "08ff4d011e2baa316e860a8a6f3b532d5ce1797a73473b622ad47a942f04d71b"
 
-  url "https://trac.chirp.danplanet.com/chirp_daily/LATEST/chirp-unified-daily-#{version}.app.zip"
+  url "https://trac.chirp.danplanet.com/chirp_daily/daily-#{version}/chirp-unified-daily-#{version}.app.zip"
   name "CHIRP"
   desc "Tool for programming amateur radio"
   homepage "https://chirp.danplanet.com/projects/chirp/wiki/Home"
 
   livecheck do
     url "https://trac.chirp.danplanet.com/chirp_daily/LATEST/SHA1SUM"
-    strategy :page_match
-    regex(/chirp-unified-daily-(\d+(?:\.\d+)*).app\.zip/i)
+    regex(/chirp[._-]unified[._-]daily[._-]v?(\d+(?:\.\d+)*)\.app\.zip/i)
   end
 
   app "CHIRP.app"

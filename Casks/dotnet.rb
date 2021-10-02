@@ -1,6 +1,6 @@
 cask "dotnet" do
-  version "5.0.6,4e2e2c76-626f-4927-8753-55d47ab79e06:24417509d68777cab1ed5f927e86db82"
-  sha256 "208eae389ea28d76b6b081f944cecca9ec7f0d59bba6711ade976a8c2bf18994"
+  version "5.0.10,0a1577a6-a7f1-4da0-ae64-9003ff8badb5:3b3a9291a0bdcb5591afab9e842272db"
+  sha256 "20e0ecf502863f1b932ce4d4ac2e685e126d058dd5e57b6a5235c1dc3f760be1"
 
   url "https://download.visualstudio.microsoft.com/download/pr/#{version.after_comma.before_colon}/#{version.after_colon}/dotnet-runtime-#{version.before_comma}-osx-x64.pkg"
   name ".Net Runtime"

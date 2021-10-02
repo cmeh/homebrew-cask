@@ -1,6 +1,6 @@
 cask "bria" do
-  version "6.4.0,106813"
-  sha256 "c55cc742e0e227a75323e5f6e7f4b27c6b6b9a39e4a8a4a2d182fc593724c5d9"
+  version "6.4.2,107895"
+  sha256 "d9208cbc89077d757830b5ad34b9a5d2e710fbcb925f365a031bd735e52dba8e"
 
   url "https://counterpath.s3.amazonaws.com/downloads/Bria_#{version.before_comma}_#{version.after_comma}.dmg",
       verified: "counterpath.s3.amazonaws.com/"
@@ -9,9 +9,9 @@ cask "bria" do
   homepage "https://www.counterpath.com/bria-solo/"
 
   livecheck do
-    url "https://www.counterpath.com/Bria6forMac"
+    url "https://www.counterpath.com/Bria#{version.major}forMac"
     strategy :header_match do |headers|
-      match = headers["location"].match(%r{/Bria_(\d+(?:\.\d+)*)_(\d+)\.dmg}i)
+      match = headers["location"].match(%r{/Bria[._-]v?(\d+(?:\.\d+)+)[_-](\d+)\.dmg}i)
       "#{match[1]},#{match[2]}"
     end
   end

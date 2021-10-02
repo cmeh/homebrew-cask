@@ -1,16 +1,21 @@
 cask "exodus" do
-  version "21.5.7"
-  sha256 "6818408419634f18d9b0104de83e329ddb2fe42b329f1c1e560d1764bda905cd"
+  version "21.9.29"
 
-  url "https://downloads.exodus.com/releases/exodus-macos-#{version}.dmg"
+  if Hardware::CPU.intel?
+    sha256 "f99d4a02a0eabc2fb0f49e387875503f8a05e43a4532c0ed536fb8ca2f3889eb"
+    url "https://downloads.exodus.com/releases/exodus-macos-#{version}.dmg"
+  else
+    sha256 "75e2426e5ebf7b19ec0a250cfbf4b842916284e9096cc0fb3777e055ff293951"
+    url "https://downloads.exodus.com/releases/exodus-macos-arm64-#{version}.dmg"
+  end
+
   name "Exodus"
   desc "Desktop wallet for cryptocurrency assets"
   homepage "https://www.exodus.com/"
 
   livecheck do
     url "https://www.exodus.com/releases/"
-    strategy :page_match
-    regex(/new\s*in.*?(\d+(?:\.\d+)*)/i)
+    regex(%r{/hashes[._-]exodus[._-]?v?(\d+(?:\.\d+)+)\.txt}i)
   end
 
   auto_updates true

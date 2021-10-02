@@ -1,6 +1,6 @@
 cask "jaxx-liberty" do
-  version "2.6.3"
-  sha256 "86ccdd76668083972c7cd0034aee43af314189f81c325d8e1a80ea7136929766"
+  version "2.6.5"
+  sha256 "2963f0cbf9c0cc7568b4cc25cd716502472a8ecb8b785ba20483a3974d5e0252"
 
   url "https://download-liberty.jaxx.io/Jaxx.Liberty-#{version}.dmg"
   name "Jaxx Blockchain Wallet"
@@ -15,7 +15,9 @@ cask "jaxx-liberty" do
   app "Jaxx Liberty.app"
 
   zap trash: [
-    "~/Library/Application Support/jaxx",
-    "~/Library/Logs/jaxx",
+    "~/Library/Application Support/com.liberty.jaxx",
+    "~/Library/Logs/com.liberty.jaxx",
+    "~/Library/Preferences/com.liberty.jaxxliberty.plist",
+    "~/Library/Saved Application State/com.liberty.jaxxliberty.savedState",
   ]
 end

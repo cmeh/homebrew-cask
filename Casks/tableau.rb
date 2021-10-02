@@ -1,11 +1,11 @@
 cask "tableau" do
-  version "2021.1.1"
-  sha256 "f379c9e8d2681cdf751e024c769205058d4acb4b2a9b85296030aa82aeab6321"
+  version "2021.3.1"
+  sha256 "c64e34c63d788306453b3058e40db579ffa3a05078de4512056e4689e7974a57"
 
   url "https://downloads.tableau.com/tssoftware/TableauDesktop-#{version.dots_to_hyphens}.dmg"
   name "Tableau Desktop"
-  desc "Popular analytics platform"
-  homepage "https://www.tableau.com/products/desktop/download"
+  desc "Data visualization software"
+  homepage "https://www.tableau.com/products/desktop"
 
   livecheck do
     url "https://www.tableau.com/downloads/desktop/mac"
@@ -14,7 +14,7 @@ cask "tableau" do
     end
   end
 
-  depends_on macos: ">= :yosemite"
+  depends_on macos: ">= :high_sierra"
 
   pkg "Tableau Desktop.pkg"
 

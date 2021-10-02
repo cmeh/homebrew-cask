@@ -1,18 +1,15 @@
 cask "porting-kit" do
-  version "4.1.31"
-  sha256 "7b1c65bafd41a621e5b10843f5eb27ad9f10b77dede13ad5219911cb94a2871f"
+  version "4.2.29"
+  sha256 "de339851d593d3f987184bd385436edb075a40079752e412095e89926016e7ce"
 
-  url "https://portingkit.com/pub/portingkit/Porting%20Kit-#{version}-mac.zip"
+  url "https://github.com/vitor251093/porting-kit-releases/releases/download/v#{version}/Porting-Kit-#{version}.dmg",
+      verified: "github.com/vitor251093/porting-kit-releases/"
   name "Porting Kit"
   desc "Install games and apps compiled for Microsoft Windows"
   homepage "https://portingkit.com/"
 
-  livecheck do
-    url "https://portingkit.com/pub/portingkit/latest-mac.yml"
-    strategy :electron_builder
-  end
-
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "Porting Kit.app"
 end

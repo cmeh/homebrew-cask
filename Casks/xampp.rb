@@ -1,6 +1,6 @@
 cask "xampp" do
-  version "8.0.5-0"
-  sha256 "f1fb5a09320880e183834f2b8ef53859ecab7eac6414d9e2a5cfacd1fc6ec4ce"
+  version "8.0.10-0"
+  sha256 "f99b129db70efb716c84c38bdf189569654deb69dabf70e2888e8df959ece501"
 
   url "https://downloadsapachefriends.global.ssl.fastly.net/xampp-files/#{version.split("-").first}/xampp-osx-#{version}-installer.dmg",
       verified: "downloadsapachefriends.global.ssl.fastly.net/xampp-files/"
@@ -10,8 +10,7 @@ cask "xampp" do
 
   livecheck do
     url "https://www.apachefriends.org/download.html"
-    strategy :page_match
-    regex(%r{href=.*?/xampp-osx-(\d+(?:\.\d+)*-\d+)-installer\.dmg}i)
+    regex(%r{href=.*?/xampp[._-]osx[._-]v?(\d+(?:\.\d+)*-\d+)[._-]installer\.dmg}i)
   end
 
   installer script: {

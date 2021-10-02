@@ -1,6 +1,6 @@
 cask "microsoft-powerpoint" do
-  version "16.49.21050901"
-  sha256 "d8f32fc1031f6f7dc35efa660fb81ce17ab6fcf6e6b861028fbe4a9faa34acea"
+  version "16.53.21091200"
+  sha256 "88fdb7d74bde7b6941eda1e2a0dd0c43a29a46bca821ea8daa332131c6243eb6"
 
   url "https://officecdn-microsoft-com.akamaized.net/pr/C1297A47-86C4-4C1F-97FA-950631F94777/MacAutoupdate/Microsoft_PowerPoint_#{version}_Installer.pkg",
       verified: "officecdn-microsoft-com.akamaized.net/pr/C1297A47-86C4-4C1F-97FA-950631F94777/MacAutoupdate/"
@@ -38,5 +38,6 @@ cask "microsoft-powerpoint" do
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.microsoft.powerpoint.sfl*",
     "~/Library/Containers/com.microsoft.Powerpoint",
     "~/Library/Preferences/com.microsoft.Powerpoint.plist",
+    "~/Library/Saved Application State/com.microsoft.Powerpoint.savedState",
   ]
 end

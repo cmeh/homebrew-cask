@@ -1,6 +1,6 @@
 cask "operator" do
-  version "0.9.27"
-  sha256 "4d99e47c02c0282ba752e24081a51c97d772c8894716d4c9f90c52c3f13cdc18"
+  version "1.2.0"
+  sha256 "2b952f8431bced097ca1a3ae96d2175bc60c9d11478c54694b98eb65c15f9ba7"
 
   url "https://s3.amazonaws.com/operator.versions/release-builds/#{version}/Operator-#{version}-mac.zip",
       verified: "s3.amazonaws.com/operator.versions/"

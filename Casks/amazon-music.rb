@@ -1,9 +1,9 @@
 cask "amazon-music" do
-  version "8.4.0.2249,224949_d5c94ee480b0c856a9257863319df96e"
-  sha256 "c7d001f1be8a37bd14bca1eee3851c3235327fb43d45700726ddbb5eb322c783"
+  version "8.7.0.2277,2277722_956ebb4b9962d984cd83152141e48b98"
+  sha256 "3d75f4a427648236217b72d37a52900098775cebdcedd9638b2ae6126ae3c0bf"
 
-  url "https://morpho-releases.s3-us-west-2.amazonaws.com/mac/#{version.after_comma}/Amazon+Music+Installer.dmg",
-      verified: "morpho-releases.s3-us-west-2.amazonaws.com/mac/"
+  url "https://d2j9xt6n9dg5d3.cloudfront.net/mac/#{version.after_comma}/Amazon+Music+Installer.dmg",
+      verified: "d2j9xt6n9dg5d3.cloudfront.net/mac/"
   appcast "https://www.amazon.com/gp/dmusic/desktop/downloadPlayer",
           must_contain: version.after_comma
   name "Amazon Music"
